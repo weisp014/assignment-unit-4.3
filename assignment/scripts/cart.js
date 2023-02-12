@@ -2,12 +2,19 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 let basket = [];
+const maxItems = 5;
 
 function addItem (item) {   //function adds items to an array
+    if (!isFull()){
     basket.push(item);
     console.log("adding item:", item);
     console.log("updated cart", basket);    //output entire basket contents
     return true;
+    }
+    else {
+        console.log("No room in cart to add item:", item); //cart is full
+        return false;
+    }
 }
 
 addItem("bananas");
@@ -31,7 +38,7 @@ function empty (array) {    //function clears all items from array
 empty(basket);
 console.log("Basket should be empty now:",basket);
 
-const maxItems = 5;
+
 
 function isFull (){     //function to check if basket is full
     if(basket < maxItems){
@@ -47,3 +54,5 @@ addItem("poptarts");
 addItem("chicken");
 addItem("broccoli");
 console.log("Check if basket is full (expect true)", isFull());
+
+addItem("cookies");
