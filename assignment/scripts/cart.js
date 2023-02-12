@@ -23,10 +23,27 @@ function listItems (array) {
 
 listItems(basket);
 
-function empty (array) {    //function clears items from array
+function empty (array) {    //function clears all items from array
     array.length = 0;     //clear contents of the array
     return array;
 }
 
 empty(basket);
 console.log("Basket should be empty now:",basket);
+
+const maxItems = 5;
+
+function isFull (){     //function to check if basket is full
+    if(basket < maxItems){
+        return false
+    }
+    else return true;
+}
+
+console.log("Check if basket is full (expect false)", isFull());
+addItem("oatmeal");
+addItem("grapes");
+addItem("poptarts");
+addItem("chicken");
+addItem("broccoli");
+console.log("Check if basket is full (expect true)", isFull());
