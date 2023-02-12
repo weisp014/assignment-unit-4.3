@@ -41,7 +41,7 @@ console.log("Basket should be empty now:",basket);
 
 
 function isFull (){     //function to check if basket is full
-    if(basket < maxItems){
+    if(basket.length < maxItems){
         return false
     }
     else return true;
@@ -54,5 +54,22 @@ addItem("poptarts");
 addItem("chicken");
 addItem("broccoli");
 console.log("Check if basket is full (expect true)", isFull());
+console.log(basket);
 
 addItem("cookies");
+
+function removeItem (item){
+    let index = basket.indexOf(item);   //find first matching item
+    if (index === -1){  //didn't find a match
+        console.log("No match found in basket for:", item);
+        return null;
+    }
+    else {
+        basket.splice(index, 1);    //remove 1 item at first found match index
+        console.log(`Removed ${item} from basket`);
+        return item;
+    }
+}
+
+removeItem("strawberries");
+removeItem("chicken");
